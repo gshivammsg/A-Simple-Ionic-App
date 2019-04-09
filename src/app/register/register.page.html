@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Register</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form (submit)="registerUser(f)" #f="ngForm">
+        <ion-list>
+
+            <ion-item>
+                <ion-label position="floating">Username</ion-label>
+                <ion-input type="text" ngModel name="uname" required #uName="ngModel" ></ion-input>
+            </ion-item>
+            <span *ngIf="!uName.valid && uName.touched" style="color: red;font-size: 10px; margin-left: 20px">*Please enter a valid Username</span>
+
+
+            <ion-item>
+                <ion-label position="floating">Full Name</ion-label>
+                <ion-input type="text" ngModel name="fullName" required #fullName="ngModel"></ion-input>
+            </ion-item>
+            <span *ngIf="!fullName.valid && fullName.touched" style="color: red;font-size: 10px; margin-left: 20px">*Please enter a valid Fullname</span>
+
+
+            <ion-item>
+                <ion-label position="floating">E-Mail</ion-label>
+                <ion-input type="text" ngModel name="email" required email #email="ngModel"></ion-input>
+            </ion-item>
+            <span *ngIf="!email.valid && email.touched" style="color: red;font-size: 10px; margin-left: 20px">*Please enter a valid email</span>
+
+
+            <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" ngModel name="pswd" required #pswd="ngModel"></ion-input>
+            </ion-item>
+            <span *ngIf="!pswd.valid && pswd.touched" style="color: red;font-size: 10px; margin-left: 20px">*Please enter a valid Password</span>
+
+
+        </ion-list>
+
+        <div padding>
+            <ion-button type="submit" [disabled]="!f.valid" >SignUp</ion-button>
+        </div>
+    </form>
+
+
+        <div padding>
+            <ion-button (click)="signInGoogle()"><ion-icon name="logo-google"></ion-icon></ion-button>
+
+            <ion-button (click)="signInFacebook()"><ion-icon name="logo-facebook"></ion-icon></ion-button>
+        </div>
+</ion-content>
